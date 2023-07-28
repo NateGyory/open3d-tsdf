@@ -1,7 +1,6 @@
 {
     "name": "Gazebo Synthetic Data",
-    "path_dataset": "~/Datasets/synthetic_data",
-    "path_intrinsic": "~/Datasets/synthetic_data/intrinsics.json",
+    "path_dataset": "/Users/summercvintern/Datasets/synthetic_data",
     "depth_max": 3.0,
     "voxel_size": 0.05,
     "depth_diff_max": 0.07,

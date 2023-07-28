@@ -7,6 +7,8 @@ import datetime
 import os
 import sys
 
+from open3d_example import *
+
 # pyexample_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # sys.path.append(pyexample_path)
 #
@@ -16,7 +18,7 @@ import sys
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 config_path = (
-    os.path.abspath(os.path.join(dir_path, os.pardir)) + "/config/sythetic_data.json")
+    os.path.abspath(os.path.join(dir_path, os.pardir)) + "/config/synthetic_data.json")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Reconstruction system")
@@ -66,6 +68,7 @@ if __name__ == "__main__":
     with open(config_path) as json_file:
         config = json.load(json_file)
         initialize_config(config)
+        check_folder_structure(config['path_dataset'])
 
     assert config is not None
 
@@ -74,7 +77,7 @@ if __name__ == "__main__":
     else:
         config["debug_mode"] = False
 
-    config["device"] = "cuda:0"
+    config["device"] = "cpu:0"
 
     print("====================================")
     print("Configuration")
